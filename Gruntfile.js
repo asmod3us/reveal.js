@@ -66,15 +66,24 @@ module.exports = function(grunt) {
 		watch: {
 			files: [ 'Gruntfile.js', 'js/reveal.js', 'css/reveal.css' ],
 			tasks: 'default'
+		},
+
+		copy: {
+			main: {
+				files: [
+					{ src: ['README.md', 'LICENSE', 'js/reveal.min.js', 'css/reveal.min.css', 'css/print/', 'css/theme/*.css', 'lib/**', 'plugin/**' ], dest: 'dist/' }
+				]
+			}
 		}
 
 	});
 
 	// Dependencies
-	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
-	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
-	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
-	grunt.loadNpmTasks( 'grunt-contrib-watch' );
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	// Default task
 	grunt.registerTask( 'default', [ 'jshint', 'cssmin', 'uglify' ] );

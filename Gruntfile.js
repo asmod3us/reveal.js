@@ -109,7 +109,7 @@ module.exports = function(grunt) {
 		copy: {
 			main: {
 				files: [
-					{ src: ['README.md', 'LICENSE', 'js/reveal.min.js', 'css/reveal.min.css', 'css/print/', 'css/theme/*.css', 'lib/**', 'plugin/**' ], dest: 'dist/' }
+					{ src: ['README.md', 'LICENSE', 'js/reveal.min.js', 'css/reveal.min.css', 'css/print/**', 'css/theme/*.css', 'lib/**', 'plugin/**' ], dest: 'dist/' }
 				]
 			}
 		}
@@ -124,7 +124,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-contrib-sass' );
 	grunt.loadNpmTasks( 'grunt-contrib-connect' );
 	grunt.loadNpmTasks( 'grunt-zip' );
-	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks( 'grunt-contrib-copy' );
+	grunt.loadNpmTasks( 'grunt-release' );
 
 	// Default task
 	grunt.registerTask( 'default', [ 'jshint', 'cssmin', 'uglify' ] );
